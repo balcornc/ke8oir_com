@@ -43,7 +43,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install the Node version pinned in .nvmrc
         uses: actions/setup-node@v4
