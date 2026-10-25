@@ -1,0 +1,34 @@
+# Nets: scheduled on-air meetups where hams check in and chat or practice
+# procedures. Shown on the Local Info page. (For a specific dated occurrence
+# that should appear on the calendar, add it to data/events.yaml too.)
+#
+# SCHEMA
+#   name:         (required) Net name.
+#   schedule:     (required) Human-readable schedule, New York time,
+#                 e.g. "Wednesdays, 8:00 PM". Use [TODO: ...] if unconfirmed.
+#   where:        (required) Frequency / repeater / mode / talkgroup to use.
+#                 Can reference an entry in repeaters.yaml by name.
+#   mode:         (optional) FM voice, DMR, packet, HF SSB, etc.
+#   kind:         (optional) social | training | emergency | newcomer-friendly | other
+#   description:  (optional) One or two sentences for newcomers.
+#   contact:      (optional) Net control / contact note. No phone numbers or addresses.
+#   link:         (optional) External URL.
+#   verified:     (optional) "YYYY-MM" you last confirmed this entry.
+#   sample:       (optional) true marks a placeholder.
+
+- name: "SAMPLE Weekly Social Net"
+  schedule: "[TODO: confirm day and time]"
+  where: "[TODO: confirm repeater / frequency]"
+  mode: "FM voice"
+  kind: newcomer-friendly
+  description: "Placeholder: a relaxed weekly check-in. Replace with a real local net and describe who it's for."
+  contact: "[TODO: net control callsign]"
+  sample: true
+
+- name: "SAMPLE Emergency Communications Net"
+  schedule: "[TODO: confirm day and time]"
+  where: "[TODO: confirm repeater / frequency]"
+  mode: "FM voice"
+  kind: emergency
+  description: "Placeholder for a net that practices emergency communications."
+  sample: true

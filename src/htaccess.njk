@@ -1,0 +1,125 @@
+---
+permalink: .htaccess
+eleventyExcludeFromCollections: true
+sitemap: false
+---
+# {{ site.callsign }} .htaccess
+# GENERATED from src/htaccess.njk at build time. Edit the template, not dist/.
+#
+# Canonical host: {{ host.canonical }}
+# To flip between apex and www, change `canonicalHost` in data/site.yaml
+# (one line), then rebuild and redeploy.
+
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+
+# ---------------------------------------------------------------------------
+# Custom 404 page
+# ---------------------------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# ---------------------------------------------------------------------------
+# MIME types
+# ---------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType text/calendar .ics
+  AddType image/svg+xml .svg
+  AddType text/css .css
+  AddType application/javascript .js
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Redirects: canonical host, HTTPS, clean URLs
+# ---------------------------------------------------------------------------
+<IfModule mod_dir.c>
+  DirectorySlash On
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1. The non-canonical host ({{ host.other }}) -> https://{{ host.canonical }}, in one hop.
+  #    /.well-known/ is exempt so cPanel AutoSSL domain validation keeps working.
+  RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+  RewriteCond %{HTTP_HOST} ^{{ host.other | regexEscape | safe }}(:[0-9]+)?$ [NC]
+  RewriteRule ^ {{ host.url }}%{REQUEST_URI} [R=301,L]
+
+  # 2. HTTP -> HTTPS (keeps whatever host was requested; the check on
+  #    X-Forwarded-Proto covers hosts that terminate TLS in front of Apache).
+  RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # 3. Clean URLs: /events/index.html -> /events/
+  RewriteCond %{THE_REQUEST} \s/+(.*?/)?index\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L,NE]
+
+  # 4. Extensionless file requests map to .html when that file exists
+  #    (directories like /events/ are served by DirectoryIndex instead).
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Caching
+#   CSS/JS URLs carry ?v=<content hash> (see the `asset` filter), so they can
+#   be cached for a year. HTML, XML and calendar files stay fresh for ten
+#   minutes so new events appear promptly.
+# ---------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 10 minutes"
+  ExpiresByType text/html "access plus 10 minutes"
+  ExpiresByType text/calendar "access plus 10 minutes"
+  ExpiresByType application/xml "access plus 10 minutes"
+  ExpiresByType text/xml "access plus 10 minutes"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/avif "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(png|jpe?g|gif|webp|avif|svg|ico|woff2?)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.(html|xml|txt|ics)$">
+    Header set Cache-Control "public, max-age=600, must-revalidate"
+  </FilesMatch>
+
+  # Security headers. The CSP allows only this site's own files (no third-party
+  # scripts, fonts or styles). If you later embed a map or video, add its
+  # origin to frame-src/img-src here.
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+
+  # HSTS is deliberately OFF. Enable only after HTTPS has worked on every
+  # page for a while, because browsers will refuse plain HTTP afterwards:
+  # Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Compression (Brotli where the host has it, gzip otherwise)
+# ---------------------------------------------------------------------------
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/javascript application/javascript application/json application/xml text/xml text/calendar image/svg+xml
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml text/xml text/calendar image/svg+xml
+</IfModule>

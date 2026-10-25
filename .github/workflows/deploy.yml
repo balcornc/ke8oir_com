@@ -1,0 +1,97 @@
+name: Deploy to web host (rsync over SSH)
+
+# Method B. Runs the SAME script as `npm run deploy` (scripts/deploy.mjs) with
+# the SAME exclusions (deploy/excludes.txt), so both methods give identical
+# results from the same commit.
+
+on:
+  # Manual by default, so it does not fire while you compare methods.
+  # Run it from the repo's Actions tab > "Deploy to web host" > Run workflow.
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run: show what would change, change nothing"
+        type: boolean
+        default: true
+
+  # ---- To deploy automatically on every push to main: --------------------
+  # Remove the leading "# " from the next three lines (keep the indentation).
+  # push:
+  #   branches: [main]
+
+  # ---- To rebuild and deploy daily, so build-time "upcoming" lists stay ---
+  # ---- fresh even if you haven't edited anything: -------------------------
+  # Remove the leading "# " from the next three lines (keep the indentation).
+  # Cron runs in UTC and ignores daylight saving. 09:17 UTC is 4:17 AM EST /
+  # 5:17 AM EDT, which is fine for an overnight refresh. Scheduled runs only
+  # happen on the default branch, and GitHub pauses scheduled workflows in a
+  # repository with no activity for 60 days (re-enable in the Actions tab).
+  # schedule:
+  #   - cron: "17 9 * * *"
+
+permissions:
+  contents: read
+
+# Only one deploy at a time. A second run waits instead of racing the first.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Install the Node version pinned in .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies (from the lockfile)
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Test the build
+        run: npm test
+
+      - name: Set up SSH (key + pinned host key)
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SSH_PRIVATE_KEY}" ]; then
+            echo "::error::Secret DEPLOY_SSH_PRIVATE_KEY is not set."; exit 1
+          fi
+          if [ -z "${SSH_KNOWN_HOSTS}" ]; then
+            echo "::error::Secret DEPLOY_KNOWN_HOSTS is not set. Add the server's host key (see README); strict host-key checking stays ON."; exit 1
+          fi
+          install -d -m 700 "$HOME/.ssh"
+          umask 077
+          printf '%s\n' "${SSH_PRIVATE_KEY}" > "$HOME/.ssh/deploy_key"
+          printf '%s\n' "${SSH_KNOWN_HOSTS}" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/deploy_key" "$HOME/.ssh/known_hosts"
+
+      - name: Deploy
+        env:
+          # Host, port, user and path can be repository Variables or Secrets.
+          DEPLOY_HOST: ${{ vars.DEPLOY_HOST || secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ vars.DEPLOY_PORT || secrets.DEPLOY_PORT || '22' }}
+          DEPLOY_USER: ${{ vars.DEPLOY_USER || secrets.DEPLOY_USER }}
+          DEPLOY_REMOTE_PATH: ${{ vars.DEPLOY_REMOTE_PATH || secrets.DEPLOY_REMOTE_PATH }}
+          DEPLOY_SSH_KEY: ~/.ssh/deploy_key
+          DEPLOY_KNOWN_HOSTS_FILE: ~/.ssh/known_hosts
+          # Manual runs honor the "dry run" checkbox (default: dry run).
+          # Push and scheduled runs always deploy for real.
+          DRY_RUN_FLAG: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '--dry-run' || '' }}
+        run: node scripts/deploy.mjs --ci --no-build $DRY_RUN_FLAG
+
+      - name: Remove SSH key material
+        if: always()
+        run: rm -f "$HOME/.ssh/deploy_key" "$HOME/.ssh/known_hosts"

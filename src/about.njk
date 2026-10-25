@@ -1,0 +1,83 @@
+---
+layout: layouts/base.njk
+title: About
+description: About KE8OIR, a licensed amateur radio operator in Middletown, Ohio, and how to get in touch.
+---
+<section class="wrap prose page-head">
+  <h1>About</h1>
+  <p class="lead">
+    I'm <span class="mono callsign">{{ site.callsign }}</span>, a licensed amateur radio operator in Middletown, Ohio.
+  </p>
+
+  <h2>This site</h2>
+  <p>
+    This is a personal site, not a club's. I keep it as a friendly guide to local ham radio
+    events and nets in and around {{ site.communities | join(", ") }}, special event stations,
+    and an introduction for anyone curious about the hobby. It's one person's list, so it won't
+    be complete. Corrections and additions are welcome.
+  </p>
+
+  <h2>Me and the hobby</h2>
+  <p>
+    I passed my Technician exam in May of 2020, after participating in my first online NWS Weather 
+    Spotter Training course.  Ham Radio was mentioned as a valuable service to weather spotting during the course, 
+    and I was reminded of childhood friend and fellow Boy Scouts in Jr High who were Hams.</p>
+  
+  <p>
+    In January of 2021, I passed my General exam, and for a few years was in and out of the hobby.  
+    Since late 2024, however, I have placed a personal emphasis on consistent hobby activity, 
+    and began functioning as the primary net control operator for the DIAL Radio Club Weekly VHF/UHF net.
+  </p>
+
+  <p>
+    In 2025 and 2026 I volunteered in support of the Flying Pig Marathon in Cincinnati, OH, 
+    and intend to continue doing so for the foreseeable future.
+  </p>
+
+  <h2>What I operate</h2>
+  <p>
+    I am on VHF/UHF and HF weekly.  I spend a lot of time on FT8 and Winlink these days, and tinker with DMR.
+    I like to try to check into local are nets when I travel for work or pleasure, and had a great time checking into Boston Area Radio Club's 
+    Monday Night Net on 145.230 (W1BOS) when I was in Boston for Red Hat Summit in May, 2025.  
+    I operated from a hotel room window with a 5W HT and had to orient it 90 degrees for my signal to get to the repeater.
+  </p>
+  <p>
+    I'm on Winlink at least once a week sending/receiving.  Send me a message and I'll respond ASAP!
+  </p>
+
+  <p>I have quite the collection of HTs, including my two favorites: a Yaesu FT-70, and an AnyTone AT-878 UVII Plus</p>
+
+  <h3>Mobile/Portable</h3>
+  <p>VHF/UHF - TYT TH-9800</p>
+
+  <h3>QTH/Home</h3>
+  <p>VHF/UHF - ICOM IC-2730A</p>
+  <p>HF/6m - Yaesu FT-710, Palomar Engineers 8010 OCFD 35+ feet inverted V</p>
+
+  <h2>Memberships</h2>
+  <p>
+     <a href="https://dialradioclub.org rel="noopener">DIAL Radio Club</a> - Middletown OH (since 2020)
+  </p>
+  </p>   
+     <a href="https://www.arrl.org/" rel="noopener">ARRL</a> (since 2020)
+  </p>
+  <p>
+  Hamilton County ARES (since 2025)
+  </p>
+  
+  <h2 id="contact">Contact me</h2>
+  <p>
+    The best way to reach me is the link below. I don't publish a phone number or street address
+    here, and I'd rather keep it that way.
+  </p>
+  <p>
+    <a class="button" href="{{ site.contact.url }}">{{ site.contact.label }}</a>
+    {%- if site.links.qrz %}
+    <a class="button button--ghost" href="{{ site.links.qrz }}" rel="noopener">My QRZ page</a>
+    {%- endif %}
+  </p>
+  <p class="muted">
+    A <strong>callsign</strong> is a ham's unique on-air name, issued by the FCC. You can look any
+    licensed ham up in the FCC's public license database.
+  </p>
+</section>

@@ -1,0 +1,136 @@
+---
+layout: layouts/base.njk
+---
+{#
+  Special event landing page. Driven entirely by the front matter of
+  src/special-events/<slug>.md. Every optional section is skipped when its
+  field is empty. See starters/special-event.md for the documented template.
+#}
+{%- set se = when %}
+
+<article class="special">
+  <header class="special__hero">
+    <div class="wrap">
+      <p class="eyebrow">{% if event_callsign %}Special event station{% else %}Special event{% endif %}</p>
+      <h1>{{ title }}</h1>
+      {%- if tagline %}<p class="lead">{{ tagline }}</p>{% endif %}
+      <ul class="facts">
+        <li>
+          <span class="facts__label">When</span>
+          <span class="facts__value">
+            <time datetime="{{ se.startYmd if se.allDay else se.startIso }}">{{ se.dateLabel }}</time><br>
+            <span class="mono">{{ se.timeLabel }}</span>
+          </span>
+        </li>
+        {%- if event_callsign %}
+        <li>
+          <span class="facts__label">Callsign</span>
+          <span class="facts__value mono facts__call">{{ event_callsign }}</span>
+        </li>
+        {%- endif %}
+        {%- if location_name %}
+        <li>
+          <span class="facts__label">Where</span>
+          <span class="facts__value">{{ location_name }}{% if address %}<br>{{ address }}{% endif %}
+            {%- if map_link %}<br><a href="{{ map_link }}" rel="noopener">Open map</a>{% endif %}
+          </span>
+        </li>
+        {%- endif %}
+      </ul>
+      <p><a class="button" href="/special-events/{{ page.fileSlug }}/event.ics">Add to calendar</a></p>
+    </div>
+    <div class="dial-rule" aria-hidden="true"></div>
+  </header>
+
+  <div class="wrap prose">
+    {%- if explainer %}
+    <section aria-labelledby="what">
+      <h2 id="what">What is this event?</h2>
+      {%- if explainer is string %}
+      <p>{{ explainer }}</p>
+      {%- else %}
+      {%- for para in explainer %}<p>{{ para }}</p>{% endfor %}
+      {%- endif %}
+    </section>
+    {%- endif %}
+
+    {%- if frequencies and frequencies.length %}
+    <section aria-labelledby="freq">
+      <h2 id="freq">Frequencies and modes</h2>
+      <p class="muted">A <strong>mode</strong> is the way a signal is sent: voice (SSB, FM), Morse code (CW), or digital.</p>
+      <div class="table-scroll" role="region" aria-label="Frequencies and modes table (scrolls sideways on small screens)" tabindex="0">
+        <table>
+          <thead><tr><th scope="col">Frequency</th><th scope="col">Mode</th><th scope="col">Notes</th></tr></thead>
+          <tbody>
+            {%- for f in frequencies %}
+            <tr>
+              <td class="mono">{{ f.frequency }}</td>
+              <td>{{ f.mode }}</td>
+              <td>{{ f.notes }}</td>
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {%- endif %}
+
+    {%- if schedule and schedule.length %}
+    <section aria-labelledby="sched">
+      <h2 id="sched">Schedule</h2>
+      <ol class="schedule">
+        {%- for s in schedule %}
+        <li><span class="schedule__time mono">{{ s.time }}</span> <span>{{ s.activity }}</span></li>
+        {%- endfor %}
+      </ol>
+    </section>
+    {%- endif %}
+
+    {%- if access or parking %}
+    <section aria-labelledby="access">
+      <h2 id="access">Getting there</h2>
+      {%- if access %}<p>{{ access }}</p>{% endif %}
+      {%- if parking %}<p><strong>Parking:</strong> {{ parking }}</p>{% endif %}
+    </section>
+    {%- endif %}
+
+    {%- if qsl %}
+    <section aria-labelledby="qsl">
+      <h2 id="qsl">QSL cards and certificates</h2>
+      <p class="muted">A <strong>QSL</strong> is a confirmation of a two-way radio contact, traditionally a postcard, now often electronic.</p>
+      {%- if qsl.how %}<p>{{ qsl.how }}</p>{% endif %}
+      {%- if qsl.certificate %}<p><strong>Certificate:</strong> {{ qsl.certificate }}</p>{% endif %}
+      {%- if qsl.url %}<p><a href="{{ qsl.url }}" rel="noopener">{{ qsl.url_label or "QSL and certificate details" }}</a></p>{% endif %}
+    </section>
+    {%- endif %}
+
+    {%- if gallery and gallery.length %}
+    <section aria-labelledby="photos">
+      <h2 id="photos">Photos</h2>
+      <ul class="gallery">
+        {%- for img in gallery %}
+        <li>
+          <figure>
+            <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" decoding="async"
+                 {%- if img.width and img.height %} width="{{ img.width }}" height="{{ img.height }}"{% endif %}>
+            {%- if img.caption %}<figcaption>{{ img.caption }}</figcaption>{% endif %}
+          </figure>
+        </li>
+        {%- endfor %}
+      </ul>
+    </section>
+    {%- endif %}
+
+    {%- if content | trim %}
+    <section class="extra">{{ content | safe }}</section>
+    {%- endif %}
+
+    <section aria-labelledby="contact">
+      <h2 id="contact">Questions?</h2>
+      {%- set c = contact or site.contact %}
+      <p>{{ c.note or "Reach out and I'll get back to you." }} <a class="button button--ghost" href="{{ c.url }}">{{ c.label or "Contact me" }}</a></p>
+    </section>
+
+    <p><a href="/special-events/">← All special events</a></p>
+  </div>
+</article>

@@ -1,0 +1,104 @@
+---
+layout: layouts/base.njk
+title: Local Info
+description: Repeaters, nets, clubs and meeting places for ham radio around Middletown, Ohio.
+---
+<section class="wrap page-head">
+  <h1>Local Info</h1>
+  <p class="lead">Where to listen, where to talk, and where to meet other hams around {{ site.communities | join(", ") }}.</p>
+  <p class="muted">Details change. Entries show when I last confirmed them, and anything marked <span class="mono">[TODO]</span> is still unverified. Check with the club or net before you rely on a frequency or time.</p>
+  <ul class="jump" aria-label="On this page">
+    <li><a href="#repeaters">Repeaters</a></li>
+    <li><a href="#nets">Nets</a></li>
+    <li><a href="#clubs">Clubs &amp; meeting places</a></li>
+  </ul>
+</section>
+
+<section class="wrap section" id="repeaters" aria-labelledby="rep-h">
+  <h2 id="rep-h">Repeaters</h2>
+  <p>
+    A <strong>repeater</strong> is a radio station, usually on a tall building or tower, that
+    receives your signal and rebroadcasts it, so a small handheld radio can reach across town.
+    To use one you tune to its <strong>output</strong> frequency (what you hear), transmit on a
+    slightly different frequency set by its <strong>offset</strong>, and sometimes send a quiet
+    <strong>PL tone</strong> (a sub-audible signal that opens the repeater). Frequencies are in
+    megahertz (MHz).
+  </p>
+  <ul class="cards">
+    {%- for r in repeaters %}
+    <li class="card">
+      <h3>{{ r.name }}{% if r.sample %} <span class="tag tag--sample">Sample</span>{% endif %}</h3>
+      <dl class="specs">
+        <div><dt>Output</dt><dd class="mono">{{ r.output }}</dd></div>
+        {%- if r.offset %}<div><dt>Offset</dt><dd class="mono">{{ r.offset }}</dd></div>{% endif %}
+        {%- if r.tone %}<div><dt>Tone</dt><dd class="mono">{{ r.tone }}</dd></div>{% endif %}
+        {%- if r.mode %}<div><dt>Mode</dt><dd>{{ r.mode }}</dd></div>{% endif %}
+        {%- if r.location %}<div><dt>Location</dt><dd>{{ r.location }}</dd></div>{% endif %}
+        {%- if r.coverage %}<div><dt>Coverage</dt><dd>{{ r.coverage }}</dd></div>{% endif %}
+        {%- if r.sponsor %}<div><dt>Sponsor</dt><dd>{{ r.sponsor }}</dd></div>{% endif %}
+        {%- if r.status %}<div><dt>Status</dt><dd>{{ r.status }}</dd></div>{% endif %}
+      </dl>
+      {%- if r.notes %}<p class="card__note">{{ r.notes }}</p>{% endif %}
+      {%- if r.verified %}<p class="card__verified muted">Last confirmed <span class="mono">{{ r.verified }}</span></p>{% endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="wrap section" id="nets" aria-labelledby="net-h">
+  <h2 id="net-h">Nets</h2>
+  <p>
+    A <strong>net</strong> is a scheduled on-air meetup: a host called <em>net control</em> runs
+    the session while hams <strong>check in</strong> by announcing their callsign. Some nets are
+    social, some teach procedures, and some practice emergency communications. Newcomers are
+    usually welcome to just listen the first time.
+  </p>
+  <ul class="cards">
+    {%- for n in nets %}
+    <li class="card">
+      <h3>{{ n.name }}{% if n.sample %} <span class="tag tag--sample">Sample</span>{% endif %}</h3>
+      {%- if n.kind %}<p class="event__tags"><span class="tag">{{ n.kind | replace("-", " ") | capitalize }}</span></p>{% endif %}
+      <dl class="specs">
+        <div><dt>When</dt><dd>{{ n.schedule }}</dd></div>
+        <div><dt>Where</dt><dd class="mono">{{ n.where }}</dd></div>
+        {%- if n.mode %}<div><dt>Mode</dt><dd>{{ n.mode }}</dd></div>{% endif %}
+        {%- if n.contact %}<div><dt>Contact</dt><dd>{{ n.contact }}</dd></div>{% endif %}
+      </dl>
+      {%- if n.description %}<p>{{ n.description }}</p>{% endif %}
+      {%- if n.link %}<p><a href="{{ n.link }}" rel="noopener">More about {{ n.name }}</a></p>{% endif %}
+      {%- if n.verified %}<p class="card__verified muted">Last confirmed <span class="mono">{{ n.verified }}</span></p>{% endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="wrap section" id="clubs" aria-labelledby="club-h">
+  <h2 id="club-h">Clubs &amp; meeting places</h2>
+  <p>
+    Clubs are the fastest way to learn the hobby: you meet people who will happily answer
+    questions, help with your first antenna, and sometimes run license classes and exam sessions.
+    Most meet in public places like libraries, community centers, or restaurants.
+  </p>
+  <ul class="cards">
+    {%- for c in clubs %}
+    <li class="card">
+      <h3>{{ c.name }}{% if c.sample %} <span class="tag tag--sample">Sample</span>{% endif %}</h3>
+      <p class="event__tags"><span class="tag">{{ (c.kind or "club") | capitalize }}</span></p>
+      <dl class="specs">
+        {%- if c.schedule %}<div><dt>When</dt><dd>{{ c.schedule }}</dd></div>{% endif %}
+        {%- if c.meeting_place %}<div><dt>Where</dt><dd>{{ c.meeting_place }}{% if c.address %}<br>{{ c.address }}{% endif %}</dd></div>{% endif %}
+        {%- if c.contact %}<div><dt>Contact</dt><dd>{{ c.contact }}</dd></div>{% endif %}
+      </dl>
+      {%- if c.description %}<p>{{ c.description }}</p>{% endif %}
+      {%- if c.website %}<p><a href="{{ c.website }}" rel="noopener">Website<span class="visually-hidden"> for {{ c.name }}</span></a></p>{% endif %}
+      {%- if c.verified %}<p class="card__verified muted">Last confirmed <span class="mono">{{ c.verified }}</span></p>{% endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="wrap section teaser">
+  <h2>See something wrong, or know a group I missed?</h2>
+  <p>Ham information goes stale quickly. If you run a net, repeater, or club in the area, I'd love to hear about it.</p>
+  <p><a class="button" href="{{ site.contact.url }}">{{ site.contact.label }}</a></p>
+</section>

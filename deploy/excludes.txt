@@ -1,0 +1,27 @@
+# Host-managed items in the web root (public_html).
+# rsync will NEVER upload over, or delete, anything matched here.
+#
+# BOTH deploy methods (npm run deploy, and the GitHub Actions workflow) read
+# this one file, so they protect exactly the same things. Add your own lines
+# if your host puts other files in the web root.
+#
+# A leading "/" anchors the pattern to the web root; a trailing "/" means a
+# directory. Lines starting with # are comments.
+
+# cPanel AutoSSL certificate validation. Deleting this can break renewals.
+/.well-known/
+
+# cPanel's CGI directory and per-account host files
+/cgi-bin/
+/.cpanel/
+/.cagefs/
+/.ftpquota
+/.user.ini
+/php.ini
+
+# Password-protected directory data created by cPanel
+/.htpasswd
+/.htpasswds/
+
+# Server-written error logs, wherever they appear
+error_log

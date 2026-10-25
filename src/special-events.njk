@@ -1,0 +1,59 @@
+---
+layout: layouts/base.njk
+title: Special Events
+description: Special event stations and one-off ham radio events around Middletown, Ohio, each with its own page.
+permalink: /special-events/
+---
+{%- set split = collections.specialEvents | specialSplit %}
+
+<section class="wrap page-head">
+  <h1>Special Events</h1>
+  <p class="lead">
+    A <strong>special event station</strong> is a temporary ham radio operation set up to
+    celebrate something: an anniversary, a festival, a historic site. Operators use a
+    one-time callsign, and anyone on the air can contact them and earn a souvenir QSL
+    card or certificate. Each event gets its own page you can share.
+  </p>
+</section>
+
+<section class="wrap section" aria-labelledby="se-up">
+  <h2 id="se-up">Upcoming</h2>
+  {%- if split.upcoming.length %}
+  <ul class="cards">
+    {%- for item in split.upcoming %}
+    {%- set w = item.data.when %}
+    <li class="card">
+      <p class="event__tags">
+        {%- if item.data.event_callsign %}<span class="tag mono">{{ item.data.event_callsign }}</span>{% endif %}
+        {%- if item.data.sample %}<span class="tag tag--sample">Sample</span>{% endif %}
+      </p>
+      <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+      <p class="event__when"><time datetime="{{ w.startYmd if w.allDay else w.startIso }}">{{ w.dateLabel }}</time></p>
+      {%- if item.data.tagline %}<p>{{ item.data.tagline }}</p>{% endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- else %}
+  <p class="empty">No special events are scheduled right now. Check back soon.</p>
+  {%- endif %}
+</section>
+
+{%- if split.past.length %}
+<section class="wrap section" aria-labelledby="se-past">
+  <h2 id="se-past">Past</h2>
+  <ul class="cards cards--past">
+    {%- for item in split.past %}
+    {%- set w = item.data.when %}
+    <li class="card">
+      <p class="event__tags">
+        {%- if item.data.event_callsign %}<span class="tag mono">{{ item.data.event_callsign }}</span>{% endif %}
+        {%- if item.data.sample %}<span class="tag tag--sample">Sample</span>{% endif %}
+      </p>
+      <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+      <p class="event__when"><time datetime="{{ w.startYmd if w.allDay else w.startIso }}">{{ w.dateLabel }}</time></p>
+      {%- if item.data.tagline %}<p>{{ item.data.tagline }}</p>{% endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}

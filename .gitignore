@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+_site/
+
+# Secrets and local deploy state: never commit these
+.env
+.env.*
+!.env.example
+.deploy-state.json
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/

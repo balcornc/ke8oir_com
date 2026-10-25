@@ -1,0 +1,39 @@
+{# Reusable bits. Import with: {% from "partials/macros.njk" import eventItem %} #}
+
+{% macro eventItem(ev) %}
+<li class="event" id="{{ ev.id }}" data-end="{{ ev.effectiveEndIso }}">
+  <div class="event__date" aria-hidden="true">
+    <span class="event__month">{{ ev.monthShort }}</span>
+    <span class="event__day mono">{{ ev.day }}</span>
+  </div>
+  <div class="event__body">
+    <p class="event__tags">
+      <span class="tag">{{ ev.typeLabel }}</span>
+      {%- if ev.sample %} <span class="tag tag--sample">Sample</span>{% endif %}
+    </p>
+    <h3 class="event__title">
+      {%- if ev.specialUrl %}<a href="{{ ev.specialUrl }}">{{ ev.title }}</a>{% else %}{{ ev.title }}{% endif -%}
+    </h3>
+    <p class="event__when">
+      <time datetime="{{ ev.startYmd if ev.allDay else ev.startIso }}">{{ ev.dateLabel }}</time>
+      <span class="sep" aria-hidden="true">·</span>
+      <span class="mono">{{ ev.timeLabel }}</span>
+    </p>
+    {%- if ev.location or ev.address %}
+    <p class="event__where">
+      {%- if ev.location %}{{ ev.location }}{% endif %}
+      {%- if ev.address %}{% if ev.location %}, {% endif %}{{ ev.address }}{% endif %}
+    </p>
+    {%- endif %}
+    {%- if ev.description %}
+    <p class="event__desc">{{ ev.description }}</p>
+    {%- endif %}
+    <p class="event__links">
+      {%- if ev.specialUrl %}<a href="{{ ev.specialUrl }}">Event page</a>{% endif %}
+      {%- if ev.link %}<a href="{{ ev.link }}" rel="noopener">More info<span class="visually-hidden"> about {{ ev.title }}</span></a>{% endif %}
+      {%- if ev.mapUrl %}<a href="{{ ev.mapUrl }}" rel="noopener">Map<span class="visually-hidden"> for {{ ev.title }}</span></a>{% endif %}
+      <a href="{{ ev.icsUrl }}">Add to calendar<span class="visually-hidden">: {{ ev.title }}</span></a>
+    </p>
+  </div>
+</li>
+{% endmacro %}

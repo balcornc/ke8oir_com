@@ -1,0 +1,21 @@
+{
+  "name": "ke8oir-site",
+  "version": "1.0.0",
+  "description": "Static site for ke8oir.com: a personal amateur radio site for Middletown, Ohio.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve --quiet",
+    "test": "node --test \"test/**/*.test.js\"",
+    "deploy": "node scripts/deploy.mjs",
+    "deploy:dry": "node scripts/deploy.mjs --dry-run"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.7",
+    "js-yaml": "^4.1.0"
+  }
+}

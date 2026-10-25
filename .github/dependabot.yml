@@ -1,0 +1,8 @@
+# Keeps the GitHub Actions versions in deploy.yml current (monthly).
+# Optional: delete this file if you'd rather update by hand.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

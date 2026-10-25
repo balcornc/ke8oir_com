@@ -1,0 +1,30 @@
+# Clubs, groups, and meeting places. Shown on the Local Info page.
+#
+# SCHEMA
+#   name:          (required) Club or group name.
+#   kind:          (optional) club | group | meetup | other  (default: club)
+#   description:   (optional) One or two sentences for newcomers.
+#   meeting_place: (optional) Where they meet, by name.
+#   address:       (optional) Public street address of a PUBLIC meeting place only.
+#                  Never a private home.
+#   schedule:      (optional) e.g. "First Thursday, 7:00 PM". [TODO: ...] if unconfirmed.
+#   website:       (optional) External URL.
+#   contact:       (optional) Contact note (a public email or web form; no phone numbers).
+#   verified:      (optional) "YYYY-MM" you last confirmed this entry.
+#   sample:        (optional) true marks a placeholder.
+
+- name: "SAMPLE Amateur Radio Club"
+  kind: club
+  description: "Placeholder. Replace with a real club in the area, or delete."
+  meeting_place: "[TODO: meeting place name]"
+  address: "[TODO: public street address]"
+  schedule: "[TODO: confirm meeting day and time]"
+  website: "https://example.com/TODO-club-site"
+  sample: true
+
+- name: "SAMPLE Breakfast Meetup"
+  kind: meetup
+  description: "Placeholder for an informal get-together. Great place for newcomers to ask questions."
+  meeting_place: "[TODO: restaurant or cafe name]"
+  schedule: "[TODO: confirm day and time]"
+  sample: true

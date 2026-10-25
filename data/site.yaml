@@ -1,0 +1,45 @@
+# Site-wide settings. Edit freely; no template changes needed.
+
+title: KE8OIR
+callsign: KE8OIR
+tagline: Ham radio in Middletown, Ohio
+description: >-
+  A friendly amateur radio site for Middletown, Ohio and nearby communities:
+  local events, nets, repeaters, clubs, special event stations, and how to get
+  started in ham radio.
+
+# ---- Canonical host: THE ONE-LINE CHANGE --------------------------------
+# "ke8oir.com"      -> www.ke8oir.com redirects to ke8oir.com   (default)
+# "www.ke8oir.com"  -> ke8oir.com redirects to www.ke8oir.com
+# This drives .htaccess redirects, canonical URLs, sitemap, Open Graph tags
+# and calendar UIDs. Rebuild and redeploy after changing it.
+canonicalHost: ke8oir.com
+
+# Communities this site covers. Shown on the home page and Local Info page.
+communities:
+  - Middletown
+  - Monroe
+  - Franklin
+  - Carlisle
+  - Trenton
+  - Germantown
+  - Hamilton
+  - Springboro
+
+# How long (hours) a timed event with no "end" counts as "upcoming" after it
+# starts. Only affects when it moves to the past list; no end time is shown.
+defaultEventHours: 2
+
+# Contact link. PLACEHOLDER: replace with a mailto: link, a contact form URL,
+# or your QRZ page. Do not put a phone number or street address here.
+contact:
+  label: Contact me
+  url: "https://www.qrz.com/db/KE8OIR"
+
+# Optional public profile links. Leave a value empty ("") to hide it.
+links:
+  qrz: ""          # e.g. https://www.qrz.com/db/KE8OIR
+  callbook_note: ""
+
+# Default social-preview image (1200x630 PNG), used when a page has none.
+ogImage: /assets/img/og-default.png

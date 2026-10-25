@@ -1,0 +1,13 @@
+# Main navigation, in order. `url` must end with a slash (except "/").
+- label: Home
+  url: /
+- label: Events
+  url: /events/
+- label: Special Events
+  url: /special-events/
+- label: Get Started
+  url: /get-started/
+- label: Local Info
+  url: /local-info/
+- label: About
+  url: /about/

@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+title: Events
+description: "Upcoming ham radio events around Middletown, Ohio: nets, meetings, exam sessions, Field Day and special event stations."
+---
+{% from "partials/macros.njk" import eventItem %}
+
+<section class="wrap page-head">
+  <h1>Events</h1>
+  <p class="lead">Nets, meetings, exam sessions, Field Day and special event stations in and around {{ site.communities | join(", ") }}. All times are Eastern (ET).</p>
+  <p class="subscribe">
+    <a class="button button--ghost" href="webcal://{{ host.canonical }}/calendar.ics">Subscribe in your calendar app</a>
+    <a href="/calendar.ics">Download the .ics file</a>
+  </p>
+</section>
+
+<section class="wrap section" aria-labelledby="up-h">
+  <h2 id="up-h">Upcoming</h2>
+  <ol class="event-list" data-upcoming-list>
+    {%- for ev in cal.upcoming %}
+    {{ eventItem(ev) }}
+    {%- endfor %}
+  </ol>
+  <p class="empty" data-empty{% if cal.upcoming.length %} hidden{% endif %}>
+    No upcoming events are listed right now. Check back soon, or see the
+    <a href="/local-info/">regular nets and meetings</a>.
+  </p>
+</section>
+
+<section class="wrap section">
+  <details class="past" data-past{% if not cal.past.length %} hidden{% endif %}>
+    <summary>Past events (<span data-past-count>{{ cal.past.length }}</span>)</summary>
+    <ol class="event-list event-list--past" data-past-list>
+      {%- for ev in cal.past %}
+      {{ eventItem(ev) }}
+      {%- endfor %}
+    </ol>
+  </details>
+</section>

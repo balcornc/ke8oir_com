@@ -1,0 +1,56 @@
+---
+layout: layouts/base.njk
+description: Local ham radio events, nets, repeaters and special event stations around Middletown, Ohio, plus a friendly guide to getting started in amateur radio.
+permalink: /
+---
+{% from "partials/macros.njk" import eventItem %}
+
+<section class="hero">
+  <div class="wrap hero__inner">
+    <p class="eyebrow">Amateur radio · {{ site.communities | join(" · ") }}</p>
+    <h1>Hi, I'm <span class="mono callsign">{{ site.callsign }}</span>.</h1>
+    <p class="lead">
+      I'm a licensed ham radio operator in Middletown, Ohio. This is my corner of the
+      internet for local radio happenings: what's on the calendar, where the nets and
+      meetups are, and how to get started if you're curious.
+    </p>
+    <p class="hero__actions">
+      <a class="button" href="/events/">See upcoming events</a>
+      <a class="button button--ghost" href="/get-started/">New to ham radio? Start here</a>
+    </p>
+  </div>
+  <div class="dial-rule" aria-hidden="true"></div>
+</section>
+
+<section class="wrap section" aria-labelledby="next-h">
+  <div class="section__head">
+    <h2 id="next-h">Coming up</h2>
+    <a href="/events/">All events →</a>
+  </div>
+  {%- set next = cal.upcoming | take(5) %}
+  <ol class="event-list" data-upcoming-list>
+    {%- for ev in next %}
+    {{ eventItem(ev) }}
+    {%- endfor %}
+  </ol>
+  <p class="empty" data-empty{% if next.length %} hidden{% endif %}>
+    Nothing is on the calendar right now. Check back soon, or <a href="/local-info/">see the regular nets and meetings</a>.
+  </p>
+</section>
+
+<section class="wrap section teaser" aria-labelledby="what-h">
+  <h2 id="what-h">What is ham radio?</h2>
+  <p>
+    <strong>Ham radio</strong> (also called <strong>amateur radio</strong>) is a hobby and public service
+    where licensed people use radio to talk with each other, near and far, without
+    needing the internet or a cell tower. Hams talk across town through
+    <strong>repeaters</strong> (radio relay stations on tall towers), reach other
+    countries on shortwave, bounce signals off the moon, and keep communications
+    running when storms knock out everything else.
+  </p>
+  <p>
+    Anyone can get a license: you study, pass a multiple-choice exam, and
+    you're on the air. It's a hobby for tinkerers, talkers, and people who like to help.
+  </p>
+  <p><a class="button" href="/get-started/">How to get licensed</a></p>
+</section>

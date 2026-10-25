@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- if page.url == "/" or not title %}
+  {%- set fullTitle = site.callsign + " · " + site.tagline %}
+  {%- else %}
+  {%- set fullTitle = title + " · " + site.callsign %}
+  {%- endif %}
+  {%- set metaDescription = description or site.description %}
+  {%- set shareImage = (ogImage or site.ogImage) | absUrl %}
+  <title>{{ fullTitle }}</title>
+  <meta name="description" content="{{ metaDescription }}">
+  <link rel="canonical" href="{{ page.url | absUrl }}">
+  {%- if noindex or sample %}
+  <meta name="robots" content="noindex, follow">
+  {%- endif %}
+  <meta name="color-scheme" content="light dark">
+
+  <meta property="og:site_name" content="{{ site.callsign }}">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:title" content="{{ title or site.tagline }}">
+  <meta property="og:description" content="{{ metaDescription }}">
+  <meta property="og:url" content="{{ page.url | absUrl }}">
+  <meta property="og:image" content="{{ shareImage }}">
+  <meta property="og:image:alt" content="{{ ogImageAlt or (site.callsign + ' amateur radio, ' + site.tagline) }}">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title or site.tagline }}">
+  <meta name="twitter:description" content="{{ metaDescription }}">
+  <meta name="twitter:image" content="{{ shareImage }}">
+
+  <link rel="icon" href="{{ '/assets/img/favicon.svg' | asset }}" type="image/svg+xml">
+  <link rel="alternate" type="text/calendar" title="{{ site.callsign }} events" href="/calendar.ics">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | asset }}">
+  <script src="{{ '/assets/js/upcoming.js' | asset }}" defer></script>
+  {%- if headExtra %}
+  {{ headExtra | safe }}
+  {%- endif %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="/">
+        <svg class="smeter" viewBox="0 0 54 24" width="54" height="24" aria-hidden="true" focusable="false">
+          <g fill="currentColor">
+            <rect x="0"  y="18" width="4" height="6" />
+            <rect x="6"  y="15" width="4" height="9" />
+            <rect x="12" y="12" width="4" height="12" />
+            <rect x="18" y="9"  width="4" height="15" />
+            <rect x="24" y="6"  width="4" height="18" />
+          </g>
+          <g class="smeter__hot">
+            <rect x="30" y="4"  width="4" height="20" />
+            <rect x="36" y="2"  width="4" height="22" />
+            <rect x="42" y="0"  width="4" height="24" />
+            <rect x="48" y="0"  width="4" height="24" />
+          </g>
+        </svg>
+        <span class="brand__text">
+          <span class="brand__call mono">{{ site.callsign }}</span>
+          <span class="brand__tag">{{ site.tagline }}</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          {%- for item in nav %}
+          {%- set current = (page.url == item.url) or (item.url != "/" and page.url.startsWith(item.url)) %}
+          <li><a href="{{ item.url }}"{% if current %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    {%- if sample %}
+    <div class="notice wrap" role="note">
+      <strong>Sample page.</strong> This is a template example and is hidden from search engines. Delete it once you have a real special event.
+    </div>
+    {%- endif %}
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="dial-rule" aria-hidden="true"></div>
+    <div class="wrap site-footer__inner">
+      <p><span class="mono">{{ site.callsign }}</span> · {{ site.communities | join(", ") }}</p>
+      <p>
+        <a href="/calendar.ics">Calendar feed (.ics)</a> ·
+        <a href="/get-started/">Get started in ham radio</a> ·
+        <a href="/about/">Contact</a>
+      </p>
+      <p class="muted">No tracking, no cookies, no third-party scripts. All times are Eastern (ET). © {{ build.year }} {{ site.callsign }}.</p>
+    </div>
+  </footer>
+</body>
+</html>

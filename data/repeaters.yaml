@@ -1,0 +1,39 @@
+# Repeaters: radio relay stations that extend the range of handheld and mobile
+# radios. Shown on the Local Info page.
+#
+# SCHEMA
+#   name:        (required) Display name or the repeater's callsign.
+#   output:      (required) Frequency you LISTEN on, in MHz (e.g. "147.000").
+#   offset:      (optional) "+" or "-" plus amount, e.g. "+0.6 MHz".
+#   tone:        (optional) CTCSS/PL tone in Hz needed to access it, e.g. "88.5 Hz".
+#   mode:        (optional) FM, DMR, D-STAR, Fusion, etc.
+#   location:    (optional) General area. Keep it to a town or landmark.
+#   coverage:    (optional) Short note on who can reach it.
+#   sponsor:     (optional) Club or owner.
+#   notes:       (optional) Anything else (open/closed, linked system, etc.).
+#   status:      (optional) e.g. "Active", "Unconfirmed", "Off the air".
+#   verified:    (optional) "YYYY-MM" you last confirmed this entry.
+#   sample:      (optional) true marks a placeholder.
+#
+# Never guess a frequency or tone. If unconfirmed, keep the [TODO: ...] text.
+
+- name: "SAMPLE Repeater A"
+  output: "[TODO: confirm frequency]"
+  offset: "[TODO: confirm offset]"
+  tone: "[TODO: confirm PL tone]"
+  mode: "FM"
+  location: "[TODO: general location]"
+  coverage: "[TODO: describe coverage]"
+  sponsor: "[TODO: sponsoring club]"
+  status: "Unconfirmed"
+  sample: true
+
+- name: "SAMPLE Repeater B (digital)"
+  output: "[TODO: confirm frequency]"
+  offset: "[TODO: confirm offset]"
+  tone: "[TODO: confirm tone / color code]"
+  mode: "[TODO: DMR / D-STAR / Fusion]"
+  location: "[TODO: general location]"
+  notes: "Example of a digital-voice repeater entry."
+  status: "Unconfirmed"
+  sample: true
