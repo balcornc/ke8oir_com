@@ -13,18 +13,18 @@
 #   verified:      (optional) "YYYY-MM" you last confirmed this entry.
 #   sample:        (optional) true marks a placeholder.
 
-- name: "SAMPLE Amateur Radio Club"
+- name: "DIAL Radio Club"
   kind: club
-  description: "Placeholder. Replace with a real club in the area, or delete."
-  meeting_place: "[TODO: meeting place name]"
-  address: "[TODO: public street address]"
-  schedule: "[TODO: confirm meeting day and time]"
-  website: "https://example.com/TODO-club-site"
-  sample: true
+  description: "Radio club in Middletown, Ohio.  Hosts a weekly social net and monthly club meetings."
+  meeting_place: "https://dialradioclub.org/calendar-upcoming-activities/"
+  address: ""
+  schedule: "3rd Monday, 5:30 PM dinner, 6:00 PM meeting"
+  website: "https://dialradioclub.org"
+  sample: false
 
-- name: "SAMPLE Breakfast Meetup"
-  kind: meetup
-  description: "Placeholder for an informal get-together. Great place for newcomers to ask questions."
-  meeting_place: "[TODO: restaurant or cafe name]"
-  schedule: "[TODO: confirm day and time]"
-  sample: true
+# - name: "SAMPLE Breakfast Meetup"
+#   kind: meetup
+#   description: "Placeholder for an informal get-together. Great place for newcomers to ask questions."
+#   meeting_place: "[TODO: restaurant or cafe name]"
+#   schedule: "[TODO: confirm day and time]"
+#   sample: true

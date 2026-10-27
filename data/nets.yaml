@@ -16,19 +16,19 @@
 #   verified:     (optional) "YYYY-MM" you last confirmed this entry.
 #   sample:       (optional) true marks a placeholder.
 
-- name: "SAMPLE Weekly Social Net"
-  schedule: "[TODO: confirm day and time]"
-  where: "[TODO: confirm repeater / frequency]"
+- name: "DIAL Radio Club Weekly Social Net"
+  schedule: "Wednesdays, 8:00 PM"
+  where: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
   mode: "FM voice"
   kind: newcomer-friendly
-  description: "Placeholder: a relaxed weekly check-in. Replace with a real local net and describe who it's for."
-  contact: "[TODO: net control callsign]"
-  sample: true
+  description: "A relaxed weekly check-in for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  contact: "Net Manager: KE8OIR (ke8oir@arrl.net)"
+  sample: false
 
-- name: "SAMPLE Emergency Communications Net"
-  schedule: "[TODO: confirm day and time]"
-  where: "[TODO: confirm repeater / frequency]"
-  mode: "FM voice"
-  kind: emergency
-  description: "Placeholder for a net that practices emergency communications."
-  sample: true
+# - name: "SAMPLE Emergency Communications Net"
+#   schedule: "[TODO: confirm day and time]"
+#   where: "[TODO: confirm repeater / frequency]"
+#   mode: "FM voice"
+#   kind: emergency
+#   description: "Placeholder for a net that practices emergency communications."
+#   sample: true

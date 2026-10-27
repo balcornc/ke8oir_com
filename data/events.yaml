@@ -32,62 +32,168 @@
 # ALL ENTRIES BELOW ARE SAMPLES. Replace them with real events, and do not
 # invent details: use [TODO: ...] until you have confirmed them.
 
-- title: "SAMPLE: Weekly Net"
+- title: "DIAL Radio Club Weekly Social Net"
+  type: net
+  start: "2026-10-20 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
+
+- title: "DIAL Radio Club Weekly Social Net"
   type: net
   start: "2026-10-28 20:00"
-  end: "2026-10-28 21:00"
-  location: "[TODO: repeater name or frequency]"
-  description: "Placeholder for a recurring on-air net. Replace with the real net, or delete this entry."
-  sample: true
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
 
-- title: "SAMPLE: Monthly Club Meeting"
-  type: meeting
-  start: "2026-11-05 19:00"
-  end: "2026-11-05 20:30"
-  location: "[TODO: meeting place]"
-  address: "[TODO: street address]"
-  description: "Placeholder for a club meeting. Add the real club, place, and time once confirmed."
-  link: "https://example.com/TODO-club-page"
-  sample: true
-
-- title: "SAMPLE: License Exam Session"
-  type: exam
-  start: "2026-11-14 10:00"
-  location: "[TODO: exam location]"
-  address: "[TODO: street address]"
-  description: "Placeholder for a Volunteer Examiner exam session. Confirm registration rules with the organizing team."
-  link: "https://example.com/TODO-exam-registration"
-  sample: true
-
-- title: "SAMPLE: Special Event Station"
-  type: special-event
-  start: "2026-11-21 09:00"
-  end: "2026-11-22 17:00"
-  location: "[TODO: operating location]"
-  description: "Placeholder that links to the sample special event page. Delete along with src/special-events/sample-special-event.md."
-  slug: sample-special-event
-  sample: true
-
-- title: "SAMPLE: Swap Meet"
-  type: other
-  start: "2026-12-05"
-  all_day: true
-  location: "[TODO: venue]"
-  description: "Placeholder for an all-day event (note: no times, just a date)."
-  sample: true
-
-- title: "SAMPLE: Field Day"
-  type: field-day
-  start: "2027-06-26 14:00"
-  end: "2027-06-27 17:00"
-  location: "[TODO: operating site]"
-  description: "Placeholder. [TODO: confirm the date and local operating plans before publishing.]"
-  sample: true
-
-- title: "SAMPLE: Past Net"
+- title: "DIAL Radio Club Weekly Social Net"
   type: net
-  start: "2026-10-14 20:00"
-  end: "2026-10-14 21:00"
-  location: "[TODO: repeater name or frequency]"
-  description: "Placeholder showing how an event that already happened appears in the collapsed Past events list."
-  sample: true
+  start: "2026-11-04 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
+
+- title: "DIAL Radio Club Weekly Social Net"
+  type: net
+  start: "2026-11-11 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
+
+- title: "DIAL Radio Club Weekly Social Net"
+  type: net
+  start: "2026-11-18 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
+
+- title: "DIAL Radio Club Weekly Social Net"
+  type: net
+  start: "2026-11-25 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
+
+- title: "DIAL Radio Club Weekly Social Net"
+  type: net
+  start: "2026-12-02 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
+
+- title: "DIAL Radio Club Weekly Social Net"
+  type: net
+  start: "2026-12-09 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
+
+- title: "DIAL Radio Club Weekly Social Net"
+  type: net
+  start: "2026-12-02 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
+
+- title: "DIAL Radio Club Weekly Social Net"
+  type: net
+  start: "2026-12-16 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
+
+- title: "DIAL Radio Club Weekly Social Net"
+  type: net
+  start: "2026-12-23 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
+
+- title: "SPECIAL EVENT:DIAL Radio Club Christmas Eve Net"
+  type: special-event
+  start: "2026-12-24 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "A Special Christmas Eve Net Hosted by KE8OIR - Brian!  All are welcome!"
+  slug: christmas-eve-net
+  sample: false
+
+- title: "DIAL Radio Club Weekly Social Net"
+  type: net
+  start: "2026-12-30 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  sample: false
+
+- title: "SPECIAL EVENT:DIAL Radio Club New Year's Eve Net"
+  type: special-event
+  start: "2026-12-31 20:00"
+  end: ""
+  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
+  description: "A Special New Year's Eve Net Hosted by KE8OIR - Brian!  All are welcome!"
+  slug: new-years-eve-net
+  sample: false
+
+# - title: "SAMPLE: Monthly Club Meeting"
+#   type: meeting
+#   start: "2026-11-05 19:00"
+#   end: "2026-11-05 20:30"
+#   location: "[TODO: meeting place]"
+#   address: "[TODO: street address]"
+#   description: "Placeholder for a club meeting. Add the real club, place, and time once confirmed."
+#   link: "https://example.com/TODO-club-page"
+#   sample: true
+
+# - title: "SAMPLE: License Exam Session"
+#   type: exam
+#   start: "2026-11-14 10:00"
+#   location: "[TODO: exam location]"
+#   address: "[TODO: street address]"
+#   description: "Placeholder for a Volunteer Examiner exam session. Confirm registration rules with the organizing team."
+#   link: "https://example.com/TODO-exam-registration"
+#   sample: true
+
+# - title: "SAMPLE: Special Event Station"
+#   type: special-event
+#   start: "2026-11-21 09:00"
+#   end: "2026-11-22 17:00"
+#   location: "[TODO: operating location]"
+#   description: "Placeholder that links to the sample special event page. Delete along with src/special-events/sample-special-event.md."
+#   slug: sample-special-event
+#   sample: true
+
+# - title: "SAMPLE: Swap Meet"
+#   type: other
+#   start: "2026-12-05"
+#   all_day: true
+#   location: "[TODO: venue]"
+#   description: "Placeholder for an all-day event (note: no times, just a date)."
+#   sample: true
+
+# - title: "SAMPLE: Field Day"
+#   type: field-day
+#   start: "2027-06-26 14:00"
+#   end: "2027-06-27 17:00"
+#   location: "[TODO: operating site]"
+#   description: "Placeholder. [TODO: confirm the date and local operating plans before publishing.]"
+#   sample: true
+
+# - title: "SAMPLE: Past Net"
+#   type: net
+#   start: "2026-10-14 20:00"
+#   end: "2026-10-14 21:00"
+#   location: "[TODO: repeater name or frequency]"
+#   description: "Placeholder showing how an event that already happened appears in the collapsed Past events list."
+#   sample: true
