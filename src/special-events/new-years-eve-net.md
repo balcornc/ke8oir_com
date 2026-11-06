@@ -51,7 +51,7 @@ parking: ""
 # ham radio, and explain any jargon the first time it appears.
 explainer:
   - "This is the Second Annual DIAL Radio Club New Year's Eve Net!"
-  - "A social net for all local hams to check-in and wish each other a Merry Christmas!"
+  - "A social net for all local hams to check-in and wish each other a Happy New Year!"
 
 # ---- Operating frequencies and modes --------------------------------------
 frequencies:
@@ -83,6 +83,13 @@ schedule:
 #     width: 1200
 #     height: 800
 
+gallery:
+  - src: /assets/img/special-events/new-years-eve-net/nyeqsl.png
+    alt: "New Years Eve Net QSL Card"
+    caption: "2026 Special Event QSL Card"
+    width: 1200
+    height: 800
+
 # ---- Contact --------------------------------------------------------------
 # Defaults to the site-wide contact link from data/site.yaml. Override only
 # if this event has its own public contact.
@@ -92,7 +99,7 @@ schedule:
 #   note: "Questions about the event?"
 
 # ---- Housekeeping ---------------------------------------------------------
-updated: "2026-10-27"       # set when you change dates/times (helps calendar apps)
+updated: "2026-11-1"       # set when you change dates/times (helps calendar apps)
 # sample: true                # marks a placeholder page; hidden from search engines
 ---
 
