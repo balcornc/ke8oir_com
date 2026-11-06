@@ -22,6 +22,24 @@
   website: "https://dialradioclub.org"
   sample: false
 
+- name: "WC8VOA Amateur Radio Club"
+  kind: club
+  description: "West Chester Amateur Radio Club."
+  meeting_place: "The National Voice of America Museum of Broadcasting"
+  address: "8070 Tylersville Rd. West Chester, Ohio  45069"
+  schedule: "Open Shack Hours: Wednesdays 7:00 PM to 9:00 PM"
+  website: "https://wc8voa.org"
+  sample: false
+
+- name: "Dayton Amateur Radio Association"
+  kind: club
+  description: "Dayton-area amateur radio club. Sponsors the Dayton Hamvention® and the Dayton Hamvention® Amateur Radio Emergency Communications (ARES) group."
+  meeting_place: "Dayton Amateur Radio Association Clubhouse"
+  address: "6612 Clyo Rd. Dayton, Ohio 45459"
+  schedule: "2nd Friday, 7:30 PM"
+  website: "https://w8bi.org"
+  sample: false
+
 # - name: "SAMPLE Breakfast Meetup"
 #   kind: meetup
 #   description: "Placeholder for an informal get-together. Great place for newcomers to ask questions."

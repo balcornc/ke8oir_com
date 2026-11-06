@@ -60,6 +60,9 @@ export default function (eleventyConfig) {
   const host = () => getHost();
 
   eleventyConfig.addFilter("absUrl", (p) => (/^https?:\/\//.test(p) ? p : host().url + p));
+  eleventyConfig.addFilter("externalLinkAttrs", (url) =>
+    /^https?:\/\//i.test(String(url ?? "")) ? 'target="_blank" rel="noopener noreferrer"' : "",
+  );
 
   // Cache-busting: /assets/css/style.css -> /assets/css/style.css?v=<hash>.
   // Lets .htaccess give CSS/JS a one-year immutable cache safely.

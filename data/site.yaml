@@ -24,7 +24,8 @@ communities:
   - Trenton
   - Germantown
   - Hamilton
-  - Springboro
+  - West Chester
+  - Dayton
 
 # How long (hours) a timed event with no "end" counts as "upcoming" after it
 # starts. Only affects when it moves to the past list; no end time is shown.

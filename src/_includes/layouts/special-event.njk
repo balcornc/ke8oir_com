@@ -32,7 +32,7 @@ layout: layouts/base.njk
         <li>
           <span class="facts__label">Where</span>
           <span class="facts__value">{{ location_name }}{% if address %}<br>{{ address }}{% endif %}
-            {%- if map_link %}<br><a href="{{ map_link }}" rel="noopener">Open map</a>{% endif %}
+            {%- if map_link %}<br><a href="{{ map_link }}" {{ map_link | externalLinkAttrs | safe }}>Open map</a>{% endif %}
           </span>
         </li>
         {%- endif %}
@@ -100,7 +100,7 @@ layout: layouts/base.njk
       <p class="muted">A <strong>QSL</strong> is a confirmation of a two-way radio contact, traditionally a postcard, now often electronic.</p>
       {%- if qsl.how %}<p>{{ qsl.how }}</p>{% endif %}
       {%- if qsl.certificate %}<p><strong>Certificate:</strong> {{ qsl.certificate }}</p>{% endif %}
-      {%- if qsl.url %}<p><a href="{{ qsl.url }}" rel="noopener">{{ qsl.url_label or "QSL and certificate details" }}</a></p>{% endif %}
+      {%- if qsl.url %}<p><a href="{{ qsl.url }}" {{ qsl.url | externalLinkAttrs | safe }}>{{ qsl.url_label or "QSL and certificate details" }}</a></p>{% endif %}
     </section>
     {%- endif %}
 
@@ -128,7 +128,7 @@ layout: layouts/base.njk
     <section aria-labelledby="contact">
       <h2 id="contact">Questions?</h2>
       {%- set c = contact or site.contact %}
-      <p>{{ c.note or "Reach out and I'll get back to you." }} <a class="button button--ghost" href="{{ c.url }}">{{ c.label or "Contact me" }}</a></p>
+      <p>{{ c.note or "Reach out and I'll get back to you." }} <a class="button button--ghost" href="{{ c.url }}" {{ c.url | externalLinkAttrs | safe }}>{{ c.label or "Contact me" }}</a></p>
     </section>
 
     <p><a href="/special-events/">← All special events</a></p>

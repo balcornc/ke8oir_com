@@ -21,9 +21,17 @@
   where: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
   mode: "FM voice"
   kind: newcomer-friendly
-  description: "A relaxed weekly check-in for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
+  description: "A relaxed weekly check-in for local hams.  Hosts a question of the week and occasional operational challenges.  All are welcome!"
   contact: "Net Manager: KE8OIR (ke8oir@brianalcorn.com)"
   sample: false
+
+- name: "WC8VOA Monday Night Roundtable Net"
+  schedule: "Mondays, 8:00 PM"
+  where: "145.390 MHz"
+  mode: "FM voice"
+  kind: social
+  description: "We meet to update on club activities and see what everybody is up-to."
+  contact: "qst@wc8voa.org"
 
 # - name: "SAMPLE Emergency Communications Net"
 #   schedule: "[TODO: confirm day and time]"

@@ -65,7 +65,7 @@ description: Repeaters, nets, clubs and meeting places for ham radio around Midd
         {%- if n.contact %}<div><dt>Contact</dt><dd>{{ n.contact }}</dd></div>{% endif %}
       </dl>
       {%- if n.description %}<p>{{ n.description }}</p>{% endif %}
-      {%- if n.link %}<p><a href="{{ n.link }}" rel="noopener">More about {{ n.name }}</a></p>{% endif %}
+      {%- if n.link %}<p><a href="{{ n.link }}" {{ n.link | externalLinkAttrs | safe }}>More about {{ n.name }}</a></p>{% endif %}
       {%- if n.verified %}<p class="card__verified muted">Last confirmed <span class="mono">{{ n.verified }}</span></p>{% endif %}
     </li>
     {%- endfor %}
@@ -90,7 +90,7 @@ description: Repeaters, nets, clubs and meeting places for ham radio around Midd
         {%- if c.contact %}<div><dt>Contact</dt><dd>{{ c.contact }}</dd></div>{% endif %}
       </dl>
       {%- if c.description %}<p>{{ c.description }}</p>{% endif %}
-      {%- if c.website %}<p><a href="{{ c.website }}" rel="noopener">Website<span class="visually-hidden"> for {{ c.name }}</span></a></p>{% endif %}
+      {%- if c.website %}<p><a href="{{ c.website }}" {{ c.website | externalLinkAttrs | safe }}>Website<span class="visually-hidden"> for {{ c.name }}</span></a></p>{% endif %}
       {%- if c.verified %}<p class="card__verified muted">Last confirmed <span class="mono">{{ c.verified }}</span></p>{% endif %}
     </li>
     {%- endfor %}
@@ -100,5 +100,5 @@ description: Repeaters, nets, clubs and meeting places for ham radio around Midd
 <section class="wrap section teaser">
   <h2>See something wrong, or know a group I missed?</h2>
   <p>Ham information goes stale quickly. If you run a net, repeater, or club in the area, I'd love to hear about it.</p>
-  <p><a class="button" href="{{ site.contact.url }}">{{ site.contact.label }}</a></p>
+  <p><a class="button" href="{{ site.contact.url }}" {{ site.contact.url | externalLinkAttrs | safe }}>{{ site.contact.label }}</a></p>
 </section>

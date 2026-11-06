@@ -30,8 +30,8 @@
     {%- endif %}
     <p class="event__links">
       {%- if ev.specialUrl %}<a href="{{ ev.specialUrl }}">Event page</a>{% endif %}
-      {%- if ev.link %}<a href="{{ ev.link }}" rel="noopener">More info<span class="visually-hidden"> about {{ ev.title }}</span></a>{% endif %}
-      {%- if ev.mapUrl %}<a href="{{ ev.mapUrl }}" rel="noopener">Map<span class="visually-hidden"> for {{ ev.title }}</span></a>{% endif %}
+      {%- if ev.link %}<a href="{{ ev.link }}" {{ ev.link | externalLinkAttrs | safe }}>More info<span class="visually-hidden"> about {{ ev.title }}</span></a>{% endif %}
+      {%- if ev.mapUrl %}<a href="{{ ev.mapUrl }}" {{ ev.mapUrl | externalLinkAttrs | safe }}>Map<span class="visually-hidden"> for {{ ev.title }}</span></a>{% endif %}
       <a href="{{ ev.icsUrl }}">Add to calendar<span class="visually-hidden">: {{ ev.title }}</span></a>
     </p>
   </div>

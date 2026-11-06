@@ -56,10 +56,10 @@ description: About KE8OIR, a licensed amateur radio operator in Middletown, Ohio
 
   <h2>Memberships</h2>
   <p>
-     <a href="https://dialradioclub.org" rel="noopener">DIAL Radio Club</a> - Middletown OH (since 2020)
+    <a href="https://dialradioclub.org" {{ "https://dialradioclub.org" | externalLinkAttrs | safe }}>DIAL Radio Club</a> - Middletown OH (since 2020)
   </p>
   <p>   
-     <a href="https://www.arrl.org/" rel="noopener">ARRL</a> (since 2020)
+    <a href="https://www.arrl.org/" {{ "https://www.arrl.org/" | externalLinkAttrs | safe }}>ARRL</a> (since 2020)
   </p>
   <p>
   Hamilton County ARES (since 2025)
@@ -71,9 +71,9 @@ description: About KE8OIR, a licensed amateur radio operator in Middletown, Ohio
     here, and I'd rather keep it that way.
   </p>
   <p>
-    <a class="button" href="{{ site.contact.url }}">{{ site.contact.label }}</a>
+    <a class="button" href="{{ site.contact.url }}" {{ site.contact.url | externalLinkAttrs | safe }}>{{ site.contact.label }}</a>
     {%- if site.links.qrz %}
-    <a class="button button--ghost" href="{{ site.links.qrz }}" rel="noopener">My QRZ page</a>
+    <a class="button button--ghost" href="{{ site.links.qrz }}" {{ site.links.qrz | externalLinkAttrs | safe }}>My QRZ page</a>
     {%- endif %}
   </p>
   <p class="muted">
