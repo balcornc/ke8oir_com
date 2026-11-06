@@ -98,14 +98,6 @@
 
 - title: "DIAL Radio Club Weekly Social Net"
   type: net
-  start: "2026-12-02 20:00"
-  end: ""
-  location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
-  description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
-  sample: false
-
-- title: "DIAL Radio Club Weekly Social Net"
-  type: net
   start: "2026-12-16 20:00"
   end: ""
   location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
@@ -120,7 +112,7 @@
   description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
   sample: false
 
-- title: "SPECIAL EVENT:DIAL Radio Club Christmas Eve Net"
+- title: "SPECIAL EVENT: DIAL Radio Club Christmas Eve Net"
   type: special-event
   start: "2026-12-24 20:00"
   end: ""
@@ -137,7 +129,7 @@
   description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operation challenges.  All are welcome!"
   sample: false
 
-- title: "SPECIAL EVENT:DIAL Radio Club New Year's Eve Net"
+- title: "SPECIAL EVENT: DIAL Radio Club New Year's Eve Net"
   type: special-event
   start: "2026-12-31 20:00"
   end: ""

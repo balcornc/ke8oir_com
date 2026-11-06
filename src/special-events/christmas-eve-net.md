@@ -25,7 +25,7 @@ title: "DIAL Radio Club Christmas Eve Net"
 # New York local time. "YYYY-MM-DD HH:mm" (24-hour) or "YYYY-MM-DD" (all-day).
 # For all-day events `end` is the LAST day, inclusive. DST is handled for you.
 start: "2026-12-24 20:00"
-end: "2027-12-24 21:00"       # optional
+end: "2026-12-24 21:00"       # optional
 
 # ---- Link previews (Open Graph) -------------------------------------------
 # One sentence. Shown when the page is shared on social media or in chats.
@@ -92,7 +92,7 @@ schedule:
 #   note: "Questions about the event?"
 
 # ---- Housekeeping ---------------------------------------------------------
-updated: "2025-10-27"       # set when you change dates/times (helps calendar apps)
+updated: "2026-10-27"       # set when you change dates/times (helps calendar apps)
 # sample: true                # marks a placeholder page; hidden from search engines
 ---
 
