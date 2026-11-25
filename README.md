@@ -52,6 +52,7 @@ data/                    <- the files you edit most
   nav.yaml                 the main menu
 src/
   index.njk, events.njk, ...   the pages (Nunjucks templates)
+  blog/                         one Markdown file per blog post
   special-events/              one .md file per special event page
   _includes/layouts/           page layouts (base, special-event)
   _includes/partials/macros.njk  the event card markup
@@ -61,6 +62,7 @@ src/
   htaccess.njk                 generates dist/.htaccess
   calendar.11ty.js, ...        generate the .ics feed, sitemap, robots.txt
 starters/special-event.md  <- documented template to copy for a new special event
+starters/blog-post.md      <- documented template to copy for a new blog post
 lib/                       build-time helpers (time zones, event parsing, .ics writer)
 scripts/deploy.mjs         Method A and Method B both run this
 deploy/excludes.txt        host-managed files that deploys never touch
@@ -71,6 +73,14 @@ test/                      unit tests + built-output checks
 ---
 
 ## 3. Everyday tasks
+
+### Add a blog post
+
+1. Copy `starters/blog-post.md` to `src/blog/<slug>.md`, using a short lowercase filename with dashes.
+2. Edit the title, publication date (`YYYY-MM-DD`), summary, description, and article. Keep `tags: blog` so it appears in the blog list.
+3. Run `npm run build` (or `npm start` to preview). The post appears at `/blog/<slug>/`, and `/blog/` lists posts newest first.
+
+The starter includes Markdown headings and an image example. Put blog images in `src/assets/img/blog/` and reference them as `/assets/img/blog/<filename>`.
 
 ### Add an event
 

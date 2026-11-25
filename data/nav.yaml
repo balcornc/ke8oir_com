@@ -9,5 +9,7 @@
   url: /get-started/
 - label: Local Info
   url: /local-info/
+- label: Blog
+  url: /blog/
 - label: About
   url: /about/
