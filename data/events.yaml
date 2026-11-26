@@ -72,12 +72,28 @@
   description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operational challenges.  All are welcome!"
   sample: false
 
+- title: "WC8VOA Monday Night Roundtable Net"
+  type: net
+  start: "2026-11-23 20:00"
+  end: ""
+  location: "WC8VOA 145.390- "
+  description: "A weekly roundtable net hosted by WC8VOA to update on club activities and see what everybody is up-to.  All are welcome!"
+  sample: false
+
 - title: "DIAL Radio Club Weekly Social Net"
   type: net
   start: "2026-11-25 20:00"
   end: ""
   location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
   description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operational challenges.  All are welcome!"
+  sample: false
+
+- title: "WC8VOA Monday Night Roundtable Net"
+  type: net
+  start: "2026-11-30 20:00"
+  end: ""
+  location: "WC8VOA 145.390- "
+  description: "A weekly roundtable net hosted by WC8VOA to update on club activities and see what everybody is up-to.  All are welcome!"
   sample: false
 
 - title: "DIAL Radio Club Weekly Social Net"
@@ -88,6 +104,14 @@
   description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operational challenges.  All are welcome!"
   sample: false
 
+- title: "WC8VOA Monday Night Roundtable Net"
+  type: net
+  start: "2026-12-07 20:00"
+  end: ""
+  location: "WC8VOA 145.390- "
+  description: "A weekly roundtable net hosted by WC8VOA to update on club activities and see what everybody is up-to.  All are welcome!"
+  sample: false
+
 - title: "DIAL Radio Club Weekly Social Net"
   type: net
   start: "2026-12-09 20:00"
@@ -96,12 +120,28 @@
   description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operational challenges.  All are welcome!"
   sample: false
 
+- title: "WC8VOA Monday Night Roundtable Net"
+  type: net
+  start: "2026-12-14 20:00"
+  end: ""
+  location: "WC8VOA 145.390- "
+  description: "A weekly roundtable net hosted by WC8VOA to update on club activities and see what everybody is up-to.  All are welcome!"
+  sample: false
+
 - title: "DIAL Radio Club Weekly Social Net"
   type: net
   start: "2026-12-16 20:00"
   end: ""
   location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
   description: "Weekly Social Net for local hams.  Hosts a question of the week and occasional operational challenges.  All are welcome!"
+  sample: false
+
+- title: "WC8VOA Monday Night Roundtable Net"
+  type: net
+  start: "2026-12-21 20:00"
+  end: ""
+  location: "WC8VOA 145.390- "
+  description: "A weekly roundtable net hosted by WC8VOA to update on club activities and see what everybody is up-to.  All are welcome!"
   sample: false
 
 - title: "DIAL Radio Club Weekly Social Net"
@@ -119,6 +159,14 @@
   location: "W8BLV Analog Repeaters 146.610 MHz or 444.825 MHz"
   description: "A Special Christmas Eve Net Hosted by KE8OIR - Brian!  All are welcome!"
   slug: christmas-eve-net
+  sample: false
+
+- title: "WC8VOA Monday Night Roundtable Net"
+  type: net
+  start: "2026-12-28 20:00"
+  end: ""
+  location: "WC8VOA 145.390- "
+  description: "A weekly roundtable net hosted by WC8VOA to update on club activities and see what everybody is up-to.  All are welcome!"
   sample: false
 
 - title: "DIAL Radio Club Weekly Social Net"
